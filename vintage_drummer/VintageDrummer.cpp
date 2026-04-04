@@ -29,6 +29,7 @@ constexpr float kDrumKnobFlashTimeSeconds = 0.3f;
 constexpr float kGrooveRowHeight = 30.0f;
 constexpr const char* kGroovePanelGroup = "groove_panel_group";
 
+// Main trigger mapping for drum pads; NoteToSampleIndex() also accepts +12 semitones.
 constexpr std::array<int, kNumDrumMappings> kMidiNotes {
   24, // C1 - kick
   26, // D1 - snare
@@ -208,6 +209,7 @@ public:
 
     const float dx = x - mDragStartX;
     const float dy = y - mDragStartY;
+    // Ignore tiny pointer jitter so simple clicks do not start file drag operations.
     const float dragDistance = std::sqrt((dx * dx) + (dy * dy));
     if (dragDistance < 4.0f)
       return;
@@ -376,6 +378,7 @@ bool GetWinResourceData(int resourceID, const wchar_t* resourceType, const void*
   pData = nullptr;
   sizeInBytes = 0;
 
+  // Resolve the module containing this code so resources are loaded from the plugin binary.
   HMODULE module = nullptr;
   if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
                           reinterpret_cast<LPCWSTR>(&UTF8ToPath),
@@ -410,6 +413,7 @@ bool GetWinResourceData(int resourceID, const wchar_t* resourceType, const void*
 
 struct VintageDrummer::ReverbState
 {
+  // Lightweight Schroeder/Freeverb-style reverb tuned for drum tails.
   struct Comb
   {
     std::vector<float> buffer;
@@ -527,6 +531,7 @@ struct VintageDrummer::ReverbState
   void SetRoomAmount(float amount)
   {
     amount = std::clamp(amount, 0.0f, 1.0f);
+    // One UI control drives room size, damping, and wet level together.
     roomSize = 0.2f + amount * 0.75f;
     damp = 0.1f + amount * 0.4f;
     wet = amount * 0.5f;
@@ -595,6 +600,7 @@ VintageDrummer::VintageDrummer(const InstanceInfo& info)
   for (int i = 0; i < kNumDrumMappings; ++i)
     GetParam(kParamDrumVolStart + i)->InitDouble(kDrumLabels[i], 100.0, 0.0, 200.0, 0.1, "%");
 
+  // Build a robust startup chain: locate assets, expose grooves, then decode sample buffers.
   ResolveAssetPaths();
   ScanMidiGrooves();
   LoadAllSamples();
@@ -610,6 +616,7 @@ VintageDrummer::VintageDrummer(const InstanceInfo& info)
     if (pGraphics->NControls())
       return;
 
+    // Refresh list here so extracted embedded grooves appear after plugin initialization.
     ScanMidiGrooves();
 
     pGraphics->EnableMouseOver(true);
@@ -618,6 +625,7 @@ VintageDrummer::VintageDrummer(const InstanceInfo& info)
     pGraphics->AttachPanelBackground(COLOR_BLACK);
     pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
 
+    // Preferred order: embedded resource -> discovered file path -> compile-time fallback.
     bool backgroundAttached = false;
 #if defined(OS_WIN)
     const void* bgData = nullptr;
@@ -647,6 +655,7 @@ VintageDrummer::VintageDrummer(const InstanceInfo& info)
         pGraphics->AttachBackground(BG_FN);
     }
 
+    // Use the same fallback chain for logo rendering.
     bool logoAttached = false;
 #if defined(OS_WIN)
     const void* logoData = nullptr;
@@ -887,6 +896,7 @@ void VintageDrummer::ResolveAssetPaths()
 {
   namespace fs = std::filesystem;
 
+  // Hosts launch plugins from varying working directories; probe multiple roots.
   std::vector<fs::path> searchRoots;
 
 #if defined(OS_WIN)
@@ -949,6 +959,7 @@ void VintageDrummer::ResolveAssetPaths()
       if (!DirExists(candidate))
         continue;
 
+      // Validate candidate by checking for a known required sample.
       if (FileExists(candidate / kSampleFileNames[0]))
       {
         mSampleDirectory = candidate;
@@ -1021,6 +1032,7 @@ void VintageDrummer::ResolveAssetPaths()
     mGrooveDirectory = fs::path("midi_groovs");
 
   std::error_code tempEc;
+  // Embedded MIDI resources are materialized as temp files for host drag-and-drop support.
   mGrooveTempDirectory = fs::temp_directory_path(tempEc) / "VintageDrummer_midi_grooves";
   if (tempEc || mGrooveTempDirectory.empty())
     mGrooveTempDirectory = fs::path("VintageDrummer_midi_grooves_temp");
@@ -1104,6 +1116,7 @@ bool VintageDrummer::EnsureEmbeddedGrooveFile(int resourceID, const std::filesys
   std::error_code ec;
   std::filesystem::create_directories(destinationPath.parent_path(), ec);
 
+  // Overwrite each startup so temp files always match the embedded build resources.
   std::ofstream outFile(destinationPath, std::ios::binary | std::ios::trunc);
   if (!outFile)
     return false;
@@ -1124,6 +1137,7 @@ bool VintageDrummer::LoadAllSamples()
   for (size_t i = 0; i < mSamples.size(); ++i)
   {
     SampleData data;
+    // Prefer embedded assets in release builds; fall back to external files for development.
     const bool ok = LoadEmbeddedWav(kSampleResourceIDs[i], data) || LoadWavFile(mSampleDirectory / kSampleFileNames[i], data);
 
     if (ok)
@@ -1190,6 +1204,7 @@ bool VintageDrummer::LoadWavData(const uint8_t* bytes, size_t size, SampleData& 
 
   size_t offset = 12;
 
+  // Walk RIFF chunks until both format description and PCM payload are available.
   while (offset + 8 <= size)
   {
     const uint8_t* chunkID = bytes + offset;
@@ -1315,6 +1330,7 @@ void VintageDrummer::TriggerSample(int sampleIndex, float velocity)
       break;
     }
 
+    // If all voices are in use, steal the oldest one.
     if (mVoices[static_cast<size_t>(i)].age < oldestAge)
     {
       oldestAge = mVoices[static_cast<size_t>(i)].age;
@@ -1393,6 +1409,7 @@ void VintageDrummer::ProcessMidiMsg(const IMidiMsg& msg)
   if (msg.StatusMsg() != IMidiMsg::kNoteOn)
     return;
 
+  // MIDI NoteOn with velocity 0 is NoteOff and should not trigger samples.
   if (msg.Velocity() <= 0)
     return;
 
@@ -1410,6 +1427,7 @@ void VintageDrummer::ProcessBlock(sample** inputs, sample** outputs, int nFrames
   if (nOutChans <= 0)
     return;
 
+  // This plugin is event-driven; clear the output each block before voice mixing.
   for (int ch = 0; ch < nOutChans; ++ch)
     std::memset(outputs[ch], 0, static_cast<size_t>(nFrames) * sizeof(sample));
 
@@ -1455,6 +1473,7 @@ void VintageDrummer::ProcessBlock(sample** inputs, sample** outputs, int nFrames
     if (mReverb)
       mReverb->Process(dryL, dryR, wetL, wetR);
 
+    // Keep output bounded even with high polyphony and boosted per-drum gain.
     const float outL = std::clamp((dryL + wetL) * mMasterGain, -1.0f, 1.0f);
     const float outR = std::clamp((dryR + wetR) * mMasterGain, -1.0f, 1.0f);
 

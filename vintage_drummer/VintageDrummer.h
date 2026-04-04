@@ -64,6 +64,7 @@ private:
     double position = 0.0;
     double increment = 1.0;
     float gain = 0.0f;
+    // Monotonic counter used to steal the oldest active voice when polyphony is full.
     uint64_t age = 0;
     bool active = false;
   };
