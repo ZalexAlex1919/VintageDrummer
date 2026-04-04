@@ -13,11 +13,15 @@ VintageDrummer Interface
 * **Built-in Grooves:** Get inspired instantly with integrated drum patterns.
 * **Human Touch:** Advanced Hi-Hat Choke logic for realistic performances.
 
+### 🖥️ Supported Operating Systems (Confirmed):
+* **🪟 Windows** (VST2 / VST3)
+* **🐧 Linux** (Tested via Wine / FL Studio)
+
 ## 🚀 How to Install
 It's simple! 
 1. Download the version you need from the **Releases** section on the right.
 2. Place the `.dll` (VST2) or `.vst3` file into your DAW's plugin folder.
-3. Rescan your plugins and enjoy!
+3. Rescan your plugins and enjoy creating rhythm!
 
 ## 💸 Why is it Free?
 1. **Sharing is caring:** I'm not greedy.
