@@ -42,7 +42,7 @@ You are not allowed to:
 Redistribution of unmodified plugin binaries is allowed only if this assets license and the project `LICENSE` are included.
 
 ## 5. Third-Party Material Exclusion
-Any third-party material (if added in future) remains under its own license and is not relicensed by this document.
+Third-party material remains under its own license and is not relicensed by this document.
 
 ## 6. No Warranty
 Assets are provided "as is", without warranty of any kind. The authors are not liable for any claim, damages, or other liability.

@@ -5,7 +5,7 @@
 #define PLUG_VERSION_HEX 0x00010001
 #define PLUG_VERSION_STR "1.0.1"
 #define PLUG_UNIQUE_ID 'VDrm'
-#define PLUG_MFR_ID 'VLab'
+#define PLUG_MFR_ID 'Zalx'
 #define PLUG_URL_STR "https://github.com/ZalexAlex1919/VintageDrummer"
 #define PLUG_EMAIL_STR "zalex.mail@gmail.com"
 #define PLUG_COPYRIGHT_STR "Copyright 2026 Zalex"
@@ -16,7 +16,7 @@
 #define BUNDLE_DOMAIN "com"
 
 #ifndef BUNDLE_ID
-#define BUNDLE_ID "com.vintagelabs.vintagedrummer"
+#define BUNDLE_ID "com.zalex.vintagedrummer"
 #endif
 
 #ifndef APP_GROUP_ID
@@ -51,7 +51,7 @@
 #define AUV2_VIEW_CLASS_STR "VintageDrummer_View"
 
 #define AAX_TYPE_IDS 'VDm1', 'VDm2'
-#define AAX_PLUG_MFR_STR "VLab"
+#define AAX_PLUG_MFR_STR "Zalx"
 #define AAX_PLUG_NAME_STR "VintageDrummer"
 #define AAX_DOES_AUDIOSUITE 0
 #define AAX_PLUG_CATEGORY_STR "Synth"

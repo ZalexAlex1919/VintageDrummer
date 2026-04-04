@@ -10,7 +10,7 @@ This document records origin and rights statements for visual assets used in pub
 - SHA256:
   - `9051714c2cee1bba3270da7dc63962d7e4c6e6c48e8bd7e480b08111ecf1bf71`
 - Rights statement:
-  - Declared by project author (Zalex) as generated/assembled by Zalex with ChatGPT-assisted imagery and owned by Zalex.
+  - Declared by project author (Zalex) as authored by Zalex with ChatGPT-assisted imagery and owned by Zalex.
   - Distributed under this repository's assets licensing terms (`LICENSES/ASSETS_LICENSE.md`).
 
 ## 2. Related Visual Assets Used by the Plugin UI
@@ -21,5 +21,4 @@ These assets are part of the plugin visual design and are distributed under `LIC
 
 ## 3. OpenAI Terms Reference
 - OpenAI Terms of Use: https://openai.com/policies/terms-of-use/
-- Ownership clause summary (paraphrased):
-  - as between the user and OpenAI, output is assigned to the user, to the extent permitted by law.
+- Ownership summary (paraphrased): as between the user and OpenAI, output is assigned to the user, to the extent permitted by law.
