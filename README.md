@@ -1,32 +1,38 @@
 # 🥁 VintageDrummer by Studio Sounds
 
-**VintageDrummer** is a high-quality acoustic drum VST plugin designed to bring a warm, classic studio vibe to your tracks. 100% Free. No cracks, no malware, just pure sound.
+**VintageDrummer** is an acoustic drum VST plugin focused on a warm studio character. Free to use.
 
-VintageDrummer Interface
-<img width="982" height="620" alt="2026-04-04_17-23-58" src="https://github.com/user-attachments/assets/2732a77a-481a-4d2b-a410-0a33898cf892" />
-
+VintageDrummer Interface  
+<img width="982" height="620" alt="VintageDrummer interface" src="https://github.com/user-attachments/assets/2732a77a-481a-4d2b-a410-0a33898cf892" />
 
 ## ✨ Features
-* **Premium Samples:** Carefully hand-picked sounds for maximum "coolness" and punch.
-* **Full Control:** Adjust individual volume for every drum piece (Kick, Snare, Toms, Hats).
-* **Room & Master:** Built-in reverb and master controls to shape your atmosphere.
-* **Built-in Grooves:** Get inspired instantly with integrated drum patterns.
-* **Human Touch:** Advanced Hi-Hat Choke logic for realistic performances.
+- Premium drum samples
+- Per-drum volume controls (Kick, Snare, Toms, Hats)
+- Room and Master controls
+- Built-in MIDI grooves
+- Hi-Hat choke behavior for realistic performance
 
-### 🖥️ Supported Operating Systems (Confirmed):
-* **🪟 Windows** (VST2 / VST3)
-* **🐧 Linux** (Tested via Wine / FL Studio)
+### 🖥️ Supported Operating Systems (Confirmed)
+- 🪟 Windows (VST3)
+- 🐧 Linux (tested via Wine / FL Studio)
 
-## 🚀 How to Install
-It's simple! 
-1. Download the version you need from the **Releases** section on the right.
-2. Place the `.dll` (VST2) or `.vst3` file into your DAW's plugin folder.
-3. Rescan your plugins and enjoy creating rhythm!
+## 🚀 Installation (VST3)
+1. Download `VintageDrummer.vst3` from Releases.
+2. Place it into your DAW VST3 plugin directory.
+3. Rescan plugins in the DAW.
 
-## 💸 Why is it Free?
-1. **Sharing is caring:** I'm not greedy.
-2. **Safety first:** To keep producers safe from suspicious cracks.
+### VST2 Note
+`VintageDrummer.dll` (VST2) is not distributed.
 
+## License
+- Source code: MIT (`LICENSE`)
+- Samples/MIDI/Artwork: `LICENSES/ASSETS_LICENSE.md`
+- Third-party notices: `THIRD_PARTY_NOTICES.md`
+- Licensing contact: `zalex.mail@gmail.com`
+
+## Why Free
+- Share useful tools with producers
+- Provide a clean, no-crack distribution source
 
 ---
-*Created by Studio Sounds (ZalexAlex1919)*
+Created by Studio Sounds (Zalex)
