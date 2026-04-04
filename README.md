@@ -3,7 +3,7 @@
 **VintageDrummer** is an acoustic drum VST plugin focused on a warm studio character. Free to use.
 
 VintageDrummer Interface  
-<img width="982" height="620" alt="VintageDrummer interface" src="https://github.com/user-attachments/assets/2732a77a-481a-4d2b-a410-0a33898cf892" />
+<img width="982" height="620" alt="VintageDrummer interface" src="docs/media/readme-ui.png" />
 
 ## ✨ Features
 - Premium drum samples
@@ -26,6 +26,7 @@ Distribution includes VST3 build only.
 ## License
 - Source code: MIT (`LICENSE`)
 - Samples/MIDI/Artwork: `LICENSES/ASSETS_LICENSE.md`
+- Asset provenance (including README image): `docs/media/ASSET_PROVENANCE.md`
 - Third-party notices: `THIRD_PARTY_NOTICES.md`
 - Licensing contact: `zalex.mail@gmail.com`
 

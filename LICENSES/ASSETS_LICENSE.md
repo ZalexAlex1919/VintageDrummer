@@ -16,8 +16,15 @@ Suggested paths in this repository:
 - `vintage_drummer/midi_groovs/`
 - `vintage_drummer/background.png`
 - `vintage_drummer/logo.png`
+- `docs/media/readme-ui.png`
 
 All source code files are licensed separately under the MIT License.
+Asset provenance details are documented in `docs/media/ASSET_PROVENANCE.md`.
+
+## 1.1 AI-Generated Artwork Note
+Some artwork/images may be generated with ChatGPT by the project author.
+As between the user and OpenAI, OpenAI Terms of Use assign output ownership to the user, to the extent permitted by applicable law.
+Reference: https://openai.com/policies/terms-of-use/
 
 ## 2. Permission Grant
 You are allowed to:
