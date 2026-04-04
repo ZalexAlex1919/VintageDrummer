@@ -1,18 +1,18 @@
 #pragma once
 
 #define PLUG_NAME "vintage drummer"
-#define PLUG_MFR "VintageLabs"
-#define PLUG_VERSION_HEX 0x00010000
-#define PLUG_VERSION_STR "1.0.0"
+#define PLUG_MFR "Zalex"
+#define PLUG_VERSION_HEX 0x00010001
+#define PLUG_VERSION_STR "1.0.1"
 #define PLUG_UNIQUE_ID 'VDrm'
 #define PLUG_MFR_ID 'VLab'
-#define PLUG_URL_STR "https://example.com"
-#define PLUG_EMAIL_STR "support@example.com"
-#define PLUG_COPYRIGHT_STR "Copyright 2026 VintageLabs"
+#define PLUG_URL_STR "https://github.com/ZalexAlex1919/VintageDrummer"
+#define PLUG_EMAIL_STR "zalex.mail@gmail.com"
+#define PLUG_COPYRIGHT_STR "Copyright 2026 Zalex"
 #define PLUG_CLASS_NAME VintageDrummer
 
 #define BUNDLE_NAME "VintageDrummer"
-#define BUNDLE_MFR "VintageLabs"
+#define BUNDLE_MFR "Zalex"
 #define BUNDLE_DOMAIN "com"
 
 #ifndef BUNDLE_ID
@@ -57,8 +57,8 @@
 #define AAX_PLUG_CATEGORY_STR "Synth"
 
 #define VST3_SUBCATEGORY "Instrument|Drum"
-#define CLAP_MANUAL_URL "https://example.com/manual"
-#define CLAP_SUPPORT_URL "https://example.com/support"
+#define CLAP_MANUAL_URL "https://github.com/ZalexAlex1919/VintageDrummer#readme"
+#define CLAP_SUPPORT_URL "mailto:zalex.mail@gmail.com"
 #define CLAP_DESCRIPTION "Vintage drum sampler"
 #define CLAP_FEATURES "instrument", "sampler"
 

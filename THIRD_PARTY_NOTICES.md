@@ -12,28 +12,18 @@ This project includes or depends on third-party components. Their respective lic
 - License: MIT (current VST3 SDK licensing)
 - Role in project: VST3 format integration.
 
-## 3. Roboto Font (Embedded in Binaries)
+## 3. Roboto Font
 - Name: Roboto Regular
 - Upstream: https://fonts.google.com/specimen/Roboto
 - Copyright attribution (from binary font metadata):
   - "Font data copyright Google 2012"
   - Designer: Christian Robertson
 - License: Apache License 2.0
-- Role in project: UI text rendering (`Roboto-Regular` loaded by plugin UI code)
-- Note: this font was detected in compiled plugin binaries (`VintageDrummer.vst3` and `VintageDrummer.dll`).
+- Role in project: UI text rendering (`Roboto-Regular` loaded by plugin UI code and embedded in the distributed VST3 binary).
 
-## 4. Third-Party Assets/Fonts in Repository Files
-After scanning repository files of `v1.0.0`, no standalone third-party font files (`.ttf/.otf/.woff`) were found in the tracked source tree.
-If new external assets/fonts are added later, append them here with:
+## 4. Adding New Third-Party Components
+If new external dependencies/assets/fonts are added, append them here with:
 - component name
 - source URL
 - license name
 - required attribution text
-
-## 5. VST2 Distribution Legal Note
-If you distribute VST2 binaries (`.dll` VST2), ensure you are legally entitled to do so.
-According to Steinberg licensing FAQ, VST2 binary distribution is allowed only for parties that signed the VST2 license agreement before October 2018.
-If you do not have that entitlement, do not distribute VST2 builds.
-
-Reference:
-- https://steinbergmedia.github.io/vst3_dev_portal/pages/FAQ/Licensing.html
