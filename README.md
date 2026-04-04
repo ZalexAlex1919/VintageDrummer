@@ -2,7 +2,8 @@
 
 **VintageDrummer** is a high-quality acoustic drum VST plugin designed to bring a warm, classic studio vibe to your tracks. 100% Free. No cracks, no malware, just pure sound.
 
-![VintageDrummer Interface]<img width="982" height="620" alt="2026-04-04_17-23-58" src="https://github.com/user-attachments/assets/2732a77a-481a-4d2b-a410-0a33898cf892" />
+VintageDrummer Interface
+<img width="982" height="620" alt="2026-04-04_17-23-58" src="https://github.com/user-attachments/assets/2732a77a-481a-4d2b-a410-0a33898cf892" />
 
 
 ## ✨ Features
