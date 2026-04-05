@@ -64,8 +64,5 @@ This project includes or depends on third-party components. Their own licenses a
 ## ™ Trademark Note
 The terms **VST** and **VST3** are used in this repository descriptively to identify plug-in format compatibility. No Steinberg endorsement is claimed. If you use Steinberg's **VST** trademark or logo in packaging, documentation, websites, or other marketing material, follow Steinberg's usage guidelines.
 
-## 📬 Licensing Contact
-For custom licensing questions, contact: **zalex.mail@gmail.com**
-
 ---
 Created by Zalex
