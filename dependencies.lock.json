@@ -1,0 +1,11 @@
+{
+  "iPlug2": {
+    "url": "https://github.com/iPlug2/iPlug2.git",
+    "commit": "39ea73aafe6f62fa0b52b9c633d2a480f5abb353"
+  },
+  "VST3_SDK": {
+    "url": "https://github.com/steinbergmedia/vst3sdk.git",
+    "commit": "9fad9770f2ae8542ab1a548a68c1ad1ac690abe0",
+    "version": "3.8.0_build_66"
+  }
+}
