@@ -4,7 +4,7 @@
 
 The published source contained the sampler/DSP and UI, but no build target,
 iPlug2/SDK revision, `resources/resource.h`, Windows `.rc` resource table, or
-Roboto font definition/data. The code explicitly reads the samples, grooves and
+Roboto font definition/data and the BG_FN fallback definition. The code explicitly reads the samples, grooves and
 images from RT_RCDATA resources. Merely adding include paths would not make a
 self-contained working instrument.
 
