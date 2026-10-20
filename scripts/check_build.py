@@ -65,7 +65,8 @@ def check_dll(path, entries):
             ptr = kernel.LockResource(kernel.LoadResource(module, res))
             if not ptr or ctypes.string_at(ptr, size) != original:
                 raise RuntimeError(f'Embedded bytes differ: {label}')
-        font = kernel.FindResourceW(module, 'ROBOTO-REGULAR.TTF', 'TTF')
+        # rc.exe retains quotes in this named resource; iPlug2 strips them for lookup.
+        font = kernel.FindResourceW(module, '"ROBOTO-REGULAR.TTF"', 'TTF')
         original_font = ROOT / '.deps/iPlug2/Examples/IPlugEffect/resources/fonts/Roboto-Regular.ttf'
         if not font:
             raise RuntimeError('Embedded Roboto font missing')
