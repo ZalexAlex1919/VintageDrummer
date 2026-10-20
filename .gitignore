@@ -1,0 +1,4 @@
+.deps/
+build/
+__pycache__/
+CMakeUserPresets.json

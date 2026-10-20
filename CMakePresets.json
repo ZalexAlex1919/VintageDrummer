@@ -1,0 +1,17 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [{
+    "name": "windows-vs2022-x64",
+    "generator": "Visual Studio 17 2022",
+    "architecture": "x64",
+    "binaryDir": "${sourceDir}/build/windows-x64",
+    "cacheVariables": { "IPLUG_DEPLOY_PLUGINS": "OFF" }
+  }],
+  "buildPresets": [{
+    "name": "windows-release",
+    "configurePreset": "windows-vs2022-x64",
+    "configuration": "Release",
+    "targets": ["VintageDrummer-vst3"]
+  }]
+}

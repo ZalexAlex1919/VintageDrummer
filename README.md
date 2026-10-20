@@ -66,3 +66,7 @@ The terms **VST** and **VST3** are used in this repository descriptively to iden
 
 ---
 Created by Zalex
+
+## Build from source
+
+See [BUILDING.md](BUILDING.md) for the pinned iPlug2/VST3 SDK setup, Windows x64 Visual Studio/CMake build, generated project, resource checks and CI limitations.
